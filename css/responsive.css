@@ -93,3 +93,28 @@
   .value-row span, .skill-list li, .tech-row span { font-size: 0.86rem; padding: 0.4rem 0.55rem; }
   .social-links a { width: 38px; height: 38px; }
 }
+
+
+@media (max-width: 768px) {
+  /* Les enfants de .hero-visual deviennent des éléments directs de la grille,
+     ce qui permet de placer la photo tout en haut et le panneau en bas */
+  .hero-visual { display: contents; }
+  .hero-photo  { order: -1; margin: 0 auto 1.5rem; }
+  .hero-content { order: 0; }
+  .hero-panel  { order: 1; }
+}
+
+@media (max-width: 768px) {
+  .hero-grid, .split-section, .card-grid, .projects-grid, .skills-layout {
+    grid-template-columns: 1fr;
+  }
+  .hero-content, .hero-visual, .project-card, .hero-panel {
+    min-width: 0;
+    max-width: 100%;
+  }
+  .contact-chips a, .direct-contact a {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .hero h1 { font-size: clamp(2.4rem, 12vw, 4rem); }
+}

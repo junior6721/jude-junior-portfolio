@@ -73,69 +73,68 @@
   /* ── PROJECTS ── */
   const projects = [
     {
-      id: 1, title: "TechDepot Benin", type: "E-Commerce",
-      img: "images/projects/techdepot.svg",
-      desc: "Marketplace technology pour l'achat et la vente de produits high-tech au Bénin.",
-      features: ["Catalogue produits", "Paiement mobile", "Gestion commandes", "Interface responsive"],
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      category: "E-Commerce", featured: true,
+      id: 1, title: "Inventix", type: "Plateforme SaaS",
+      desc: "Plateforme de gestion d'inventaire multi-entreprises : chaque entreprise dispose de son propre espace, avec ses utilisateurs, ses rôles et ses données isolées.",
+      features: ["Multi-entreprises (multi-tenant)", "Rôles et permissions par équipe", "Gestion des stocks", "Données cloisonnées par entreprise"],
+      tech: ["Laravel", "Livewire", "Spatie Permission", "MySQL"],
+      category: "SaaS", featured: true,
       demo: "#", github: "https://github.com/junior6721"
     },
     {
-      id: 2, title: "PhoneSecure", type: "Application Web",
-      img: "images/projects/phonesecure.svg",
-      desc: "Application de sécurisation et gestion de téléphones mobiles avec suivi GPS.",
-      features: ["Géolocalisation", "Alertes sécurité", "Historique mouvements", "Tableau de bord"],
-      tech: ["Vue.js", "PHP", "MySQL", "API GPS"],
-      category: "Application", featured: false,
-      demo: "#", github: "https://github.com/junior6721"
-    },
-    {
-      id: 3, title: "Inventix Cloud", type: "SaaS Platform",
-      img: "images/projects/inventix.svg",
-      desc: "Plateforme cloud de gestion d'inventaire pour entreprises.",
-      features: ["Multi-utilisateurs", "Rapports analytics", "Export données", "API REST"],
-      tech: ["React", "Django", "PostgreSQL", "Docker"],
-      category: "SaaS", featured: false,
-      demo: "#", github: "https://github.com/junior6721"
-    },
-    {
-      id: 4, title: "Stock Management", type: "Application Mobile",
-      img: "images/projects/stock.svg",
-      desc: "Application de gestion de stock temps réel pour commerçants.",
-      features: ["QR Code scanning", "Alertes rupture", "Multi-entrepôts", "Offline first"],
-      tech: ["React Native", "Firebase", "Node.js"],
-      category: "Application", featured: false,
-      demo: "#", github: "https://github.com/junior6721"
-    },
-    {
-      id: 5, title: "ArchivEcole", type: "Système d'information",
-      img: "images/projects/archivcole.svg",
-      desc: "Système de gestion des archives scolaires pour établissements éducatifs.",
-      features: ["Base élèves", "Bulletins numériques", "Recherche avancée", "Sauvegarde cloud"],
-      tech: ["PHP", "MySQL", "Bootstrap", "jQuery"],
+      id: 2, title: "ArchivEcole", type: "Plateforme d'archivage",
+      desc: "Plateforme d'archivage numérique des documents scolaires, conçue pour plusieurs établissements au Bénin.",
+      features: ["Multi-établissements", "Archivage de documents", "Rôles et permissions", "Recherche de documents"],
+      tech: ["Laravel 11", "Livewire", "Breeze", "Spatie Permission"],
       category: "Éducation", featured: false,
       demo: "#", github: "https://github.com/junior6721"
     },
     {
-      id: 6, title: "Marketplace Locale", type: "E-Commerce",
-      img: "images/projects/marketplace.svg",
-      desc: "Place de marché en ligne connectant vendeurs locaux et acheteurs au Bénin.",
-      features: ["Profil vendeur", "Chat intégré", "Paiement sécurisé", "Livraison tracking"],
-      tech: ["Next.js", "Prisma", "Stripe", "Tailwind"],
-      category: "E-Commerce", featured: false,
+      id: 3, title: "TechDepot Benin", type: "Application Web",
+      desc: "Plateforme de gestion pour techniciens : réception des demandes de dépannage, suivi des réparations et des pièces, et livraison confirmée par signature du client.",
+      features: ["Demandes de dépannage", "Gestion des pièces", "Suivi des réparations", "Livraison avec signature"],
+      tech: ["Laravel", "MySQL"],
+      category: "Application", featured: false,
       demo: "#", github: "https://github.com/junior6721"
     },
     {
-      id: 7, title: "BizAssist", type: "Application Web",
-      img: "images/projects/bizassist.svg",
-      desc: "Assistant numérique pour entrepreneurs avec outils de gestion intégrés.",
-      features: ["Comptabilité simplifiée", "Gestion clients", "Rapports financiers", "Rappels automatiques"],
-      tech: ["React", "Python", "FastAPI", "Redis"],
-      category: "Business", featured: false,
+      id: 4, title: "PhoneSecure", type: "Application Web",
+      desc: "Application pour déclarer le vol de son téléphone portable et suivre l'avancement de son dossier, étape par étape.",
+      features: ["Déclaration de vol en ligne", "Suivi du dossier par étapes", "Interface responsive"],
+      tech: ["Laravel", "MySQL"],
+      category: "Application", featured: false,
       demo: "#", github: "https://github.com/junior6721"
     }
   ];
+
+    /* ── VISUEL DES PROJETS (capture réelle ou couverture dégradée) ── */
+    const coverThemes = {
+      'E-Commerce': ['#0f766e', '#064e3b'],
+      'Application': ['#1d4ed8', '#1e1b4b'],
+      'SaaS': ['#6d28d9', '#312e81'],
+      'Éducation': ['#b45309', '#7c2d12'],
+      'Business': ['#be123c', '#4c0519'],
+      'default': ['#334155', '#0f172a']
+    };
+    const coverIcons = {
+      'E-Commerce': icons.cart,
+      'Application': icons.code,
+      'SaaS': icons.monitor,
+      'Business': icons.settings,
+      'Éducation': '<svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+    };
+  
+    function projectShot(p) {
+      if (p.img) {
+        return `<img src="${p.img}" alt="Aperçu de ${p.title}" loading="lazy">`;
+      }
+      const [c1, c2] = coverThemes[p.category] || coverThemes.default;
+      return `
+        <div class="project-cover" style="--c1:${c1};--c2:${c2}">
+          <span class="cover-icon">${coverIcons[p.category] || icons.code}</span>
+          <strong>${p.title}</strong>
+          <small>${p.type}</small>
+        </div>`;
+    }
 
   const featured = projects.find(p => p.featured);
   const featuredEl = document.getElementById('featuredProject');
@@ -143,7 +142,7 @@
     featuredEl.innerHTML = `
       <div class="project-card featured-project">
         <div class="project-shot">
-          <img src="${featured.img}" alt="Aperçu de ${featured.title}" loading="lazy">
+        ${projectShot(featured)}
         </div>
         <div class="project-content">
           <p class="project-type">${featured.type}</p>
@@ -156,7 +155,7 @@
             ${featured.tech.map(t => `<span>${t}</span>`).join('')}
           </div>
           <div class="project-links">
-            <a href="${featured.demo}" target="_blank" rel="noopener">Voir le projet</a>
+          ${featured.demo !== '#' ? `<a href="${featured.demo}" target="_blank" rel="noopener">Voir le projet</a>` : ''}
             <a href="${featured.github}" target="_blank" rel="noopener">Code source</a>
           </div>
         </div>
@@ -188,7 +187,7 @@
     grid.innerHTML = filtered.map(p => `
       <div class="project-card reveal" data-category="${p.category}">
         <div class="project-shot">
-          <img src="${p.img}" alt="Aperçu de ${p.title}" loading="lazy">
+        ${projectShot(p)}
         </div>
         <div class="project-content">
           <p class="project-type">${p.type}</p>
@@ -218,10 +217,10 @@
 
   /* ── SKILLS ── */
   const skills = [
-    { title: "Frontend", color: "blue", items: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Next.js", "Tailwind CSS"] },
-    { title: "Backend", color: "violet", items: ["Node.js", "Express.js", "PHP", "Laravel"] },
-    { title: "Bases de données", color: "emerald", items: ["MySQL", "PostgreSQL", "MongoDB"] },
-    { title: "Outils", color: "amber", items: ["Git", "GitHub", "VS Code", "Figma", "FileZilla"] }
+    { title: "Backend", color: "violet", items: ["PHP", "Laravel", "Livewire", "Python", "C#", "VB.NET"] },
+    { title: "Frontend", color: "blue", items: ["HTML5", "CSS3", "JavaScript"] },
+    { title: "Bases de données", color: "emerald", items: ["SQL", "MySQL"] },
+    { title: "Outils", color: "amber", items: ["Git", "GitHub", "VS Code", "XAMPP"] }
   ];
 
   const skillsGrid = document.getElementById('skillsGrid');
